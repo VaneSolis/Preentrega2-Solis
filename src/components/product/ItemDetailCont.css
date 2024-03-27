@@ -1,0 +1,12 @@
+.carddet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 350px;
+    border: 1px blue solid;
+    margin-left: 50px;
+    margin-top: 25px;
+    padding: 10px;
+}

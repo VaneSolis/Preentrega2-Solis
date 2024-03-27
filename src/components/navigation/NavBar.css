@@ -1,0 +1,12 @@
+.Nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.wiz {
+    width: 100px;
+    margin-right: 150px;
+}
