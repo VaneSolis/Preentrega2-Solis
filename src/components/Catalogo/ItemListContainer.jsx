@@ -1,15 +1,33 @@
-import { useNavigate } from "react-router-dom";
-import { getProducts } from "../../asyncMock";
+import { useNavigate, useParams } from "react-router-dom";
 import './ItemListCont.css'
 import { useEffect, useState } from "react";
+import {collection, getDocs, query, where} from "firebase/firestore";
+import {db} from '../../Firebase/Config';
 export default function ProductsComponent() {
     const navigate = useNavigate();
 
     const[products, setProducts] = useState([]);
 
+    const category = useParams().category;
+
     useEffect(()=> {
-        getProducts.then((data) => setProducts(data));
-    });
+
+        const productsRef =collection(db, "productos");
+
+        const q = category ? query(productsRef, where("category", "==", category )) : productsRef;
+
+        getDocs(q)
+        .then((resp) => {
+
+            setProducts(
+
+                resp.docs.map((doc) => {
+                    return { ...doc.data(), id: doc.id}
+                })
+            )
+        })
+        
+    },[category]);
 
     const handleClick = (id) => {
         navigate(`/product/${id}`);

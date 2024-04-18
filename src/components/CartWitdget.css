@@ -1,0 +1,11 @@
+.numerito {
+    color: #fff;
+    text-decoration: none;
+}
+.cartIcon {
+    text-decoration: none;
+    border: 1px orange solid;
+    background-color: orange;
+    border-radius: 3px;
+    padding: 5px;
+}
